@@ -39,6 +39,11 @@ void	Brain::setIdea( int i, std::string idea ) {
 void	Brain::getIdeas( void ) {
 
 	for (int i = 0; i < 100; i++)
-		std::cout << "[ " << i << " ] " + _ideas[i]
-				<< std::endl;
+		if (!_ideas[i].empty())
+		{
+			std::cout << RED << "(" << &_ideas[i] << ") " << CLEAR
+					<< "[ " << i << " ] " << _ideas[i]
+					<< std::endl;
+		}
 }
+

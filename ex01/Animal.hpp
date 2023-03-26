@@ -4,6 +4,9 @@
 
 #include <iostream>
 #define ANIMAL "\033[32mANIMAL \033[0m"
+#define YELLOW "\033[33m"
+#define RED "\033[31m"
+#define CLEAR "\033[0m"
 
 class Animal {
 

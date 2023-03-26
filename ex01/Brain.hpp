@@ -3,7 +3,10 @@
 #define BRAIN_HPP
 
 #include <iostream>
+#include <iomanip>
 #define BRAIN "\033[38;5;168mBRAIN \033[0m"
+#define RED "\033[31m"
+#define CLEAR "\033[0m"
 
 class Brain {
 	private:

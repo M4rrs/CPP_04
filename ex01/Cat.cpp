@@ -23,7 +23,7 @@ Cat::~Cat( void ) {
 /*=============== COPY CONSTRUCTOR ===============*/
 Cat::Cat( const Cat &copy ) : Animal( copy ) {
 	*this = copy;
-	std::cout << CAT << " copy constructor called." << std::endl;
+	std::cout << CAT << "copy constructor called." << std::endl;
 }
 /*=============== OVERLOADED OPERATOR ===============*/
 
