@@ -18,6 +18,8 @@ class Dog : public Animal {
 
 		std::string getType() const;
 		void	makeSound() const;
+		void	setIdea( int i, std::string idea );
+		void	getIdeas( void );
 };
 
 #endif

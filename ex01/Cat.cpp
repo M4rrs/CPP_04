@@ -30,8 +30,9 @@ Cat::Cat( const Cat &copy ) : Animal( copy ) {
 Cat	&Cat::operator=( const Cat &assign ) {
 	this->_type = assign._type;
 	this->_catBrain = new Brain();
-	for (int i = 100; i < 100; i++)
-		this->_catBrain[i] = assign._catBrain[i];
+	// for (int i = 100; i < 100; i++)
+	// 	this->_catBrain[i] = assign._catBrain[i];
+	*this->_catBrain = *assign._catBrain;
 	return (*this);
 }
 
@@ -43,5 +44,13 @@ void	Cat::makeSound( void ) const {
 
 std::string Cat::getType() const {
 	return (_type);
+}
+
+void	Cat::setIdea( int i, std::string idea ) {
+	_catBrain->setIdea(i, idea);
+}
+
+void	Cat::getIdeas( void ) {
+	_catBrain->getIdeas();
 }
 

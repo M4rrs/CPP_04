@@ -30,8 +30,9 @@ Dog::Dog( const Dog &copy ) : Animal( copy ) {
 Dog	&Dog::operator=( const Dog &assign ) {
 	this->_type = assign._type;
 	this->_dogBrain = new Brain();
-	for (int i = 0; i < 100; i++)
-		_dogBrain[i] = assign._dogBrain[i];
+	// for (int i = 0; i < 100; i++)
+	// 	_dogBrain[i] = assign._dogBrain[i];
+	*this->_dogBrain = *assign._dogBrain;
 	return (*this);
 }
 
@@ -43,4 +44,12 @@ void	Dog::makeSound( void ) const {
 
 std::string Dog::getType() const {
 	return (_type);
+}
+
+void	Dog::setIdea( int i, std::string idea ) {
+	_dogBrain->setIdea(i, idea);
+}
+
+void	Dog::getIdeas( void ) {
+	_dogBrain->getIdeas();
 }
