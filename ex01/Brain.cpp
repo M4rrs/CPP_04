@@ -21,12 +21,7 @@ Brain::Brain( const Brain &copy ) {
 
 /*=============== OVERLOADED OPERATOR ===============*/
 
-Brain	&Brain::operator=( const Brain &assign ) {
-	for (int i = 0; i < 100; i++)
-		this->_ideas[i] = assign._ideas[i];
-	
-	return (*this);
-}
+
 
 /*=============== PUBLIC  ===============*/
 
@@ -47,3 +42,9 @@ void	Brain::getIdeas( void ) {
 		}
 }
 
+Brain	&Brain::operator=( const Brain &assign ) {
+	for (int i = 0; i < 100; i++)
+		this->_ideas[i] = assign._ideas[i];
+	
+	return (*this);
+}

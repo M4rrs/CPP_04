@@ -1,8 +1,8 @@
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
-// #include "WrongAnimal.hpp"
-// #include "WrongCat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 int main()
 {
@@ -13,11 +13,21 @@ int main()
 		if (i % 2)
 		{
 			animals[i] = new Cat();
+			if (animals[i] == NULL)
+			{
+				perror("Cat allocation failed.");
+				exit(1);
+			}
 			std::cout << std::endl;
 		}
 		else
 		{
 			animals[i] = new Dog();
+			if (animals[i] == NULL)
+			{
+				perror("Dog allocation failed.");
+				exit(1);
+			}
 			std::cout << std::endl;
 		}
 	}
@@ -48,16 +58,20 @@ int main()
 	cat->setIdea(99, "It is too quiet, time to SCREAM. (It's 3am)");
 	cat->setIdea(101, "Outside of ideas"); //should not print
 
-	std::cout << YELLOW << cat->getType() + " cat has these ideas:" << CLEAR << std::endl;
-	cat->getIdeas();
-	std::cout << std::endl;
-
 	Cat *catCopy = new Cat(*cat);
 	if (catCopy == NULL)
 	{
 		perror("Cat Copy allocation failed.");
 		exit(1);
 	}
+	std::cout << std::endl;
+
+	cat->setIdea(80, "\033[36mI am the majestic feline. Highest reign of this kingdom. (House)\033[0m");
+	// ^ This idea should not appear in catCopy, because it is set after copying. This is to show that the copies are deep,
+	// with each idea having it's own memory address. I also print out the addresses to demonstrate this.
+
+	std::cout << YELLOW << cat->getType() + " cat has these ideas:" << CLEAR << std::endl;
+	cat->getIdeas();
 	std::cout << std::endl;
 
 	std::cout << YELLOW << catCopy->getType() + " catCopy has these ideas:" << CLEAR << std::endl;
@@ -84,16 +98,19 @@ int main()
 	dog->setIdea(99, " BARK ");
 	dog->setIdea(101, "Outside of ideas."); //should not print
 
-	std::cout << YELLOW << dog->getType() + " dog has these ideas:" << CLEAR << std::endl;
-	dog->getIdeas();
-	std::cout << std::endl;
-
 	Dog *dogCopy = new Dog(*dog);
 	if (dogCopy == NULL)
 	{
 		perror("Dog copy allocation failed.");
 		exit(1);
 	}
+	std::cout << std::endl;
+
+	dog->setIdea(69, "\033[36mI am a good boy, the goodest boy.\033[0m");
+	// ^ This idea should not appear in dogCopy, because it is set after copying. Same principle as catCopy.
+
+	std::cout << YELLOW << dog->getType() + " dog has these ideas:" << CLEAR << std::endl;
+	dog->getIdeas();
 	std::cout << std::endl;
 
 	std::cout << YELLOW << dogCopy->getType() + " dogCopy has these ideas:" << CLEAR << std::endl;
