@@ -1,6 +1,6 @@
 NAME = AnimalBrain
 CC = c++
-FLAGS = -Wall -Werror -Wextra -I -std=c++98 -fsanitize=address
+FLAGS = -Wall -Werror -Wextra -I -std=c++98
 
 RM = rm -rf
 
